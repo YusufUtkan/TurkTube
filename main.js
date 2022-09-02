@@ -15,6 +15,25 @@ const removeActiveClasses = () => {
     })
 }
 
+window.addEventListener('resize', () => {
+	if (window.innerWidth <= 750 && window.innerWidth >= 651) {
+		if (isOpen) {
+			mainContent.style.width = 'calc(100% - 210px)'
+			mainContent.style.left = '210px'
+		}
+	}else if (window.innerWidth <= 650) {
+		if (isOpen) {
+			mainContent.style.width = 'calc(100% - 175px)'
+			mainContent.style.left = '175px'
+		}
+	}else {
+		if (isOpen) {
+			mainContent.style.width = 'calc(100% - 240px)'
+			mainContent.style.left = '240px'
+		}
+	}
+})
+
 const updateDisplay = (leftValue) => {
 	if (leftValue == -240) {
 		menuContainer.style.left = '-240px'
@@ -22,8 +41,16 @@ const updateDisplay = (leftValue) => {
 		mainContent.style.width = '100%'
 	}else {
 		menuContainer.style.left = '0px'
-		mainContent.style.left = '240px'
-		mainContent.style.width = 'calc(100% - 240px)'
+		if (window.innerWidth <= 750 && window.innerWidth >= 651) {
+			mainContent.style.width = 'calc(100% - 210px)'
+			mainContent.style.left = '210px'
+		} else if (window.innerWidth <= 650) {
+			mainContent.style.width = 'calc(100% - 175px)'
+			mainContent.style.left = '175px'
+		}else {
+			mainContent.style.width = 'calc(100% - 240px)'
+			mainContent.style.left = '240px'
+		}
 	}
 }
 
